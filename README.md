@@ -1,4 +1,4 @@
-javaBin Scala Cake Pattern demo
-===============================
+javaBin Scala Dependency Injection demo
+=======================================
 
 Demo project for javaBin presentation.
