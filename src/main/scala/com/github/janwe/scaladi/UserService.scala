@@ -13,9 +13,9 @@ class UserService(implicit val bindingModule: BindingModule) extends Injectable 
     generate(users)
   }
 
-  def getUserByUid(uid : String) : Option[User] = {
+  def getUserByUid(uid : String) : String = {
     val users = repository.getUsers
 
-    users.find(_.uid == uid)
+    generate(users.find(_.uid == uid).getOrElse(None))
   }
 }
