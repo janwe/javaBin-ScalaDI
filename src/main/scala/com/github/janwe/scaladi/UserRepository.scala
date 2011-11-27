@@ -1,5 +1,5 @@
 package com.github.janwe.scaladi
 
 trait UserRepository {
-  def getUsers : String
+  def getUsers : List[User]
 }
