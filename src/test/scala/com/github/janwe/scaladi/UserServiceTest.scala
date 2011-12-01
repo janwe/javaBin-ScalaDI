@@ -6,12 +6,12 @@ import com.codahale.jerkson.Json
 
 class UserServiceTest extends FunSuite with ShouldMatchers {
 
-  val bindingModule = ProjectConfiguration.modifyBindings { module =>
+  val testConfig = ProjectConfiguration.modifyBindings { module =>
       module.bind[UserRepository] toInstance new TestUserRepository
       module
   }
 
-  val service = new UserService()(bindingModule)
+  val service = new UserService()(testConfig)
 
   test("AllUsers should return all available users") {
       val userString = service.getAllUsers
