@@ -3,19 +3,15 @@ package com.github.janwe.scaladi
 import org.scalatest.FunSuite
 import org.scalatest.matchers.ShouldMatchers
 import com.codahale.jerkson.Json
-import org.scala_tools.subcut.inject.BindingModule
-
 
 class UserServiceTest extends FunSuite with ShouldMatchers {
 
-  var testConfig : BindingModule = _
-
-  ProjectConfiguration.modifyBindings { module =>
+  val bindingModule = ProjectConfiguration.modifyBindings { module =>
       module.bind[UserRepository] toInstance new TestUserRepository
-      testConfig = module
+      module
   }
 
-  val service = new UserService()(testConfig)
+  val service = new UserService()(bindingModule)
 
   test("AllUsers should return all available users") {
       val userString = service.getAllUsers

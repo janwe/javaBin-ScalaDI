@@ -3,7 +3,6 @@ package com.github.janwe.scaladi
 import org.scala_tools.subcut.inject.{Injectable, BindingModule}
 import com.codahale.jerkson.Json.generate
 
-
 class UserService(implicit val bindingModule: BindingModule) extends Injectable {
 
   val repository = injectIfBound[UserRepository] {new RealUserRepository}

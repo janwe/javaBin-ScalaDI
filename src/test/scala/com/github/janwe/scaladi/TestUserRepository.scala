@@ -1,5 +1,4 @@
 package com.github.janwe.scaladi
-import com.codahale.jerkson.Json._
 
 class TestUserRepository extends UserRepository {
   def getUsers = {
